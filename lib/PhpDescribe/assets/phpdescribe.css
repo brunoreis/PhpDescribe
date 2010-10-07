@@ -1,0 +1,122 @@
+body{
+    font-family: arial,verdana, sans-serif;
+    font-size: 1em;
+    color: #000;
+    background-color: #343;
+}
+.allSpecs{
+    background-color: #ccc;
+    padding: 10px;
+/*    float: left;
+    width: 600px;
+}
+.extraInformation{
+    float: right;
+    width: 400px;*/
+}
+.allResults{
+    background-color: #ccc;
+    padding: 10px;
+}
+.resultGroup{
+    padding:5px;
+    padding-left: 20px;
+}
+.exampleResult{
+    padding:5px;
+    padding-left: 25px;
+}
+.expectationText{
+    background-color: #ccc;
+}
+.expectationNumber{
+    font-size: 0.7em;
+}
+.failures{
+    background-color: #eee;
+    margin: 10px;
+    padding:3px;
+    color: #000;
+}
+.errors{
+    color: #000;
+    background-color: #eee;
+    margin: 10px;
+    padding:3px;
+}
+.innerResults{
+    margin-top: 5px;
+    border-left: dotted 2px #999;
+}
+.resultGroupTitle{
+    /*font-size: 1.1em;*/
+}
+.resultGroupTitle a{
+    color: #000;
+    text-decoration: none;
+    /*font-size: 1.1em;*/
+}
+.resultItemTitle{
+    font-family: arial,verdana, sans-serif;
+    font-size: 0.9em;
+    padding-left: 10px;
+}
+.resultGroupData{
+    margin-left: 20px;
+    font-size: 0.8em;
+    color: #777;
+}
+.resultGroupData a{
+    margin-left: 20px;
+    font-size: 1em;
+    color: #777;
+}
+.query{
+    color: #000;
+    padding:7px;
+}
+.queryNumber{
+    color: #099;
+    padding-right: 5px;
+}
+.queryParameters{
+    color: #055;
+    display: block;
+}
+.query:nth-child(odd){
+    background-color: #eee;
+}
+.query:nth-child(even){
+    background-color: #ccc;
+}
+.NOT_WORKING{
+    background-color: #ee3;
+    color: #ee3;
+}
+.INCOMPLETE{
+    background-color: #4c7;
+    color: #4c7;
+}
+.WORKING{
+    background-color: #fff;
+    color: #fff;
+}
+.ERROR{
+    background-color: #922;
+    color: #922;
+}
+.code {
+    background-color: #bbb;
+    border: solid 1px #9c9;
+    margin: 5px;
+    padding: 5px;
+}
+.filename {
+    color: #aaa;
+    font-size: 0.8em;
+}
+.extraInformation {
+    background-color: #ddd;
+    margin: 10px;
+    padding: 10px 20px 10px 20px;
+}
