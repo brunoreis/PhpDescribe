@@ -2,10 +2,6 @@ This is a BDD like specification tool for php. The proposal here is to produce a
 
 You can take a look on it's own specs to see how they look like on /specs/PhpDescribe.spec.php. If you are visionaire, I know you already wanted to have a running spec like this to your software. Now you can!
 
-Clone the code, poit a browser to the spec dir and see the nice formated specification results you can have using this. 
-
-You can found more information on the website ?????????????????
-
-
+Please check the project page: www.phpdescribe.org
 
 
