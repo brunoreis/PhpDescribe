@@ -1,10 +1,11 @@
 This is a BDD like specification tool for php. The proposal here is to produce a realy friendly result for the specification (test) suite that can be shared with non developer people. It also allow a better organization and approach to describing software than using tdd with xUnit tools. 
 
-You can take a look on it's own specs to see how they look like on /specs/pspec.spec.php. If you are visionaire, I know you already wanted to have a running spec like this to your software. Now you can!
+You can take a look on it's own specs to see how they look like on /specs/PhpDescribe.spec.php. If you are visionaire, I know you already wanted to have a running spec like this to your software. Now you can!
 
 Clone the code, poit a browser to the spec dir and see the nice formated specification results you can have using this. 
 
-The wiki has some information either, but it might be a little old. Now we are putting the information where it really need to be to stay allways updated: on a pspec specification. So after you download, take a look at the specification to learn how to use PSpec. 
+You can found more information on the website ?????????????????
+
 
 
 
