@@ -8,7 +8,7 @@ class HaveTheKey implements AssertionInterface{
     function execute($subject, $key) {
         
         $message = var_export($subject,1)
-                .' <span class="expectationText">should have the key</span> '
+                .' <span class="expectationText">should have the key/property </span> '
                 . var_export($key,1);
         return new ExpectationResult(
             array_key_exists($key, $subject),

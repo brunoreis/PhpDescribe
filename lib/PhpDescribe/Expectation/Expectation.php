@@ -12,8 +12,10 @@ class Expectation {
             self::$registeredAssertions = array(
                 'be'  => 'PhpDescribe\Expectation\Assertions\Be',
                 'be an'  => 'PhpDescribe\Expectation\Assertions\BeAn',
+                'be in'  => 'PhpDescribe\Expectation\Assertions\BeIn',
                 'be a'  => 'PhpDescribe\Expectation\Assertions\BeAn',
                 'be greater than'  => 'PhpDescribe\Expectation\Assertions\BeGreaterThan',
+                'have'  => 'PhpDescribe\Expectation\Assertions\Have',
                 'have'  => 'PhpDescribe\Expectation\Assertions\Have',
                 'not be' => 'PhpDescribe\Expectation\Assertions\NotBe',
                 'be an instance of' => 'PhpDescribe\Expectation\Assertions\BeAnInstanceOf',
@@ -22,6 +24,7 @@ class Expectation {
                 'be a date equals or before' => 'PhpDescribe\Expectation\Assertions\BeADateEqualsOrBefore',
                 'have the same properties as' => 'PhpDescribe\Expectation\Assertions\HaveTheSamePropertiesAs',
                 'have the key' => 'PhpDescribe\Expectation\Assertions\HaveTheKey',
+                'have the property' => 'PhpDescribe\Expectation\Assertions\HaveTheKey',
                 'contain text' => 'PhpDescribe\Expectation\Assertions\ContainText'
             );
         }

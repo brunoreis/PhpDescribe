@@ -10,7 +10,7 @@ describe('PhpDescribe is a tool to describe the expected behaviour of a system i
                 $specification = __DIR__.'/fixtureSpecs/nested/nestedSpecs.spec.php';
                 $resultGroup = \PhpDescribe\Runner::build()->setSpec($specification)->run();
                 $result = $resultGroup->getResult(0)->getResult(0);
-                expect($result->getExampleGroupName())->should('be','nested spec');
+                expect($result->getExampleName())->should('be','nested spec');
                 showFileData('specification', $specification);
                 $resultHtml = \PhpDescribe\Runner::build()->setSpec($specification)->runAndReport(array(),false);
                 showData('result html', $resultHtml, false);
@@ -22,7 +22,7 @@ describe('PhpDescribe is a tool to describe the expected behaviour of a system i
                 $resultGroup = \PhpDescribe\Runner::build()->setSpec($parentSpecification)->run();
                 $resultsLevel1 = $resultGroup->getResults();
                 $resultsLevel2 = $resultsLevel1[0]->getResults();
-                expect($resultsLevel2[0]->getExampleGroupName())->should('be','nested spec');
+                expect($resultsLevel2[0]->getExampleName())->should('be','nested spec');
                 showFileData('parent specification', $parentSpecification);
                 showFileData('child specification', $childSpecification);
                 $resultHtml = \PhpDescribe\Runner::build()->setSpec($parentSpecification)->runAndReport(array(),false);
@@ -140,8 +140,8 @@ describe('PhpDescribe is a tool to describe the expected behaviour of a system i
             $newName = 'Rename Me 2';
             $spec1 = __DIR__.'/fixtureSpecs/specToRename.spec.php';
             $result = \PhpDescribe\Runner::build()->setSpec($spec1)->run();
-            expect($result->getResult(0)->getExampleGroupName())->should('be',$oldName);
-            //expect($result->getResult(0)->getResult(0)->getExampleGroupName())->should('be','Change my name');
+            expect($result->getResult(0)->getExampleName())->should('be',$oldName);
+            //expect($result->getResult(0)->getResult(0)->getExampleName())->should('be','Change my name');
             \PhpDescribe\Actions::rename(array(
                 'file'    => $spec1,
                 'line'    => 3,
@@ -149,7 +149,7 @@ describe('PhpDescribe is a tool to describe the expected behaviour of a system i
                 'newName' => $newName
             ));
             $result = \PhpDescribe\Runner::build()->setSpec($spec1)->run();
-            expect($result->getResult(0)->getExampleGroupName())->should('be',$newName);
+            expect($result->getResult(0)->getExampleName())->should('be',$newName);
             \PhpDescribe\Actions::rename(array(
                 'file'    => $spec1,
                 'line'    => 3,
@@ -163,8 +163,8 @@ describe('PhpDescribe is a tool to describe the expected behaviour of a system i
             $newName = 'Rename Me 2';
             $spec1 = __DIR__.'/fixtureSpecs/specToRename.spec.php';
             $result = \PhpDescribe\Runner::build()->setSpec($spec1)->run();
-            expect($result->getResult(0)->getExampleGroupName())->should('be',$oldName);
-            //expect($result->getResult(0)->getResult(0)->getExampleGroupName())->should('be','Change my name');
+            expect($result->getResult(0)->getExampleName())->should('be',$oldName);
+            //expect($result->getResult(0)->getResult(0)->getExampleName())->should('be','Change my name');
             \PhpDescribe\Actions::rename(array(
                 'file'    => $spec1,
                 'line'    => 3,
@@ -172,7 +172,7 @@ describe('PhpDescribe is a tool to describe the expected behaviour of a system i
                 'newName' => $newName
             ));
             $result = \PhpDescribe\Runner::build()->setSpec($spec1)->run();
-            expect($result->getResult(0)->getExampleGroupName())->should('be',$newName);
+            expect($result->getResult(0)->getExampleName())->should('be',$newName);
             \PhpDescribe\Actions::rename(array(
                 'file'    => $spec1,
                 'line'    => 3,

@@ -1,6 +1,7 @@
 <?php
 namespace PhpDescribe\Example;
 use PhpDescribe\PhpDescribe,
+    PhpDescribe\World,
     \Closure;
 abstract class AbstractExampleItem {
 
@@ -10,6 +11,7 @@ abstract class AbstractExampleItem {
     protected $PhpDescribe;
     protected $parentExampleGroup;
     protected $args;
+    
 
     function __construct($name, Closure $function, $args = null) {
         $this->name = $name;
@@ -29,7 +31,7 @@ abstract class AbstractExampleItem {
         return $this->function;
     }
     
-    abstract function run($parameters);
+    abstract function run($parameters, World $world);
 
     function setPhpDescribe(PhpDescribe $PhpDescribe) {
         $this->PhpDescribe = $PhpDescribe;

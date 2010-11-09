@@ -14,13 +14,24 @@ use \PhpDescribe\TestHooks\BeforeEach,
     \Closure,
     \System\PhpDescribe\PhpDescribeCatalog;
 
-function it($name, $exampleTestFunction = null) {
+function it($name, $exampleTestFunction = null, $prefix = NULL, $isWorkingIfNoError = false) {
+
     if($exampleTestFunction) {
-        Spec::addExampleToActual(Example::buildExample($name, $exampleTestFunction));
+        Spec::addExampleToActual(Example::buildExample($name, $exampleTestFunction, null, $isWorkingIfNoError, $prefix));
     }
     else {
-        Spec::addExampleToActualBasedOnADefinition($name);
+        Spec::addExampleToActualBasedOnADefinition($name, $prefix, $isWorkingIfNoError);
     }
+}
+
+function given($name, $exampleTestFunction = null) {
+    it($name, $exampleTestFunction, 'GIVEN', true);
+}
+function when($name, $exampleTestFunction = null) {
+    it($name, $exampleTestFunction, 'WHEN', true);
+}
+function then($name, $exampleTestFunction = null) {
+    it($name, $exampleTestFunction, 'THEN');
 }
 
 function def($name, $definitionTestFunction) {
@@ -107,4 +118,14 @@ function describe($name, $descriptionFunction ) {
         $descriptionFunction();
         Spec::setActualExampleGroup($oldActual);
     }
+}
+
+##############
+
+function extractArrayFromCsv($csv) {
+    $values = explode(',',$csv);
+    foreach($values as &$item) {
+        $item = trim($item);
+    }
+    return $values;
 }

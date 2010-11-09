@@ -52,8 +52,11 @@ class Spec {
         self::$actualExampleGroup->addDefinition($def);
     }
 
-    static function addExampleToActualBasedOnADefinition($name) {
+    static function addExampleToActualBasedOnADefinition($name, $prefix = NULL, $isWorkingIfNoError = false) {
         $definition = self::$actualExampleGroup->findDefinition($name);
+        if($name == 'I create a new random item') {
+            echo $prefix;
+        }
         if(!$definition) {
             self::addExampleToActual(Example::buildExample(
                 $name,
@@ -63,7 +66,7 @@ class Spec {
             ));
         }
         else {
-            self::addExampleToActual($definition->buildExample($name));
+            self::addExampleToActual($definition->buildExample($name, $isWorkingIfNoError, $prefix));
         }
     }
 }

@@ -158,7 +158,7 @@ class PhpDescribe {
         
         $resultGroup = new Result\Result(null);
         foreach($this->exampleGroups as $exampleGroup) {
-            $resultGroup->addResult($exampleGroup->run($this->parameters));
+            $resultGroup->addResult($exampleGroup->run($this->parameters, new World));
         }
         //x($resultGroup,0,0);
         

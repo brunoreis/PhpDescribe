@@ -7,7 +7,7 @@ use \Exception,
 class ResultGroup implements \Iterator {
 
     private $position = 0;
-    protected $exampleGroupName;
+    protected $exampleName;
 
     protected $file;
     protected $startLineNumber;
@@ -25,8 +25,8 @@ class ResultGroup implements \Iterator {
     const STATUS_ERROR        = 'ERROR';
     const STATUS_INCOMPLETE   = 'INCOMPLETE';
 
-    function __construct($exampleGroupName) {
-        $this->exampleGroupName = $exampleGroupName;
+    function __construct($exampleName) {
+        $this->exampleName = $exampleName;
         $this->position = 0;
         $this->results = new SplDoublyLinkedList();
     }
@@ -110,8 +110,8 @@ class ResultGroup implements \Iterator {
         return $this->results[$index];
     }
 
-    function getExampleGroupName() {
-        return $this->exampleGroupName;
+    function getExampleName() {
+        return $this->exampleName;
     }
 
     function addResult($result) {

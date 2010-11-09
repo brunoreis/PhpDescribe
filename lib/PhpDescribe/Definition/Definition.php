@@ -16,10 +16,10 @@ class Definition {
         return new Definition($pattern, $function);
     }
 
-    function buildExample($name) {
+    function buildExample($name, $isWorkingIfNoError = false, $prefix = null) {
         preg_match($this->pattern, $name, $matches);
         array_shift($matches);
-        return Example::buildExample($name, $this->function, $matches);
+        return Example::buildExample($name, $this->function, $matches, $isWorkingIfNoError, $prefix);
     }
 
     function match($name) {

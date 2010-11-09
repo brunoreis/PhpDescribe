@@ -37,10 +37,10 @@ class ResultReporter {
 
     function reportExampleResult(\PhpDescribe\Result\ExampleResult $exampleResult) {
         $rand = rand(1,5000);
-        $name = self::slugify($exampleResult->getExampleGroupName()) . $rand ;
+        $name = self::slugify($exampleResult->getExampleName()) . $rand ;
         $html =
             "<div class='exampleResult'>" . $this->getStatusBox($exampleResult,'.')
-            . "<span class='resultItemTitle'>" . $exampleResult->getExampleGroupName()
+            . "<span class='resultItemTitle'>" . $exampleResult->getExampleName()
             . "</span>";
         
         switch($exampleResult->calculateStatus()) {
@@ -55,7 +55,7 @@ class ResultReporter {
                     . "<br/><div id='$name' class='failures' style='display:none;'>";
                 foreach($exampleResult as $num=>$expectationResult) {
                     if($expectationResult->failed()) {
-                        $html .= $expectationResult->getMessage() . '<span class="expectationNumber"> - expectation # '. ( $num + 1) . '</span>';
+                        $html .= $expectationResult->getMessage() . '<span class="expectationNumber"> - expectation # '. ( $num + 1) . '</span><br/><br/>';
                     }
                 }
                 $html .= '</div>';
@@ -82,10 +82,10 @@ class ResultReporter {
     }
 
     private function reportResultGroup(\PhpDescribe\Result\ResultGroup $resultGroup) {
-        $name = self::slugify($resultGroup->getExampleGroupName()) . $this->resultNumber;
+        $name = self::slugify($resultGroup->getExampleName()) . $this->resultNumber;
         $html =
             "<div class='resultGroup'>" . $this->getStatusBox($resultGroup,'.')
-            ."<span class='resultGroupTitle'><a href='javascript:;' onclick='toggleDescription(\"$name\")'>" . $resultGroup->getExampleGroupName() . "</a></span>"
+            ."<span class='resultGroupTitle'><a href='javascript:;' onclick='toggleDescription(\"$name\")'>" . $resultGroup->getExampleName() . "</a></span>"
             ."<span class='resultGroupData'>"
             . $resultGroup->countExamples() 
             . $this->innerResults($resultGroup);
@@ -133,7 +133,7 @@ class ResultReporter {
     }
     
     private function reportResult(\PhpDescribe\Result\Result $result) {
-        $name = self::slugify($result->getExampleGroupName()) . $this->resultNumber;
+        $name = self::slugify($result->getExampleName()) . $this->resultNumber;
         $html =
             "<div class='allSpecs'>" . $this->getStatusBox($result,'...')
             ."<span class='resultGroupData'>"

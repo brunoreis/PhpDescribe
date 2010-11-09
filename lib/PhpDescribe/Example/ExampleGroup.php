@@ -2,6 +2,7 @@
 namespace PhpDescribe\Example;
 use PhpDescribe\TestHooks\BeforeEach,
     PhpDescribe\PhpDescribe,
+    PhpDescribe\World,
     PhpDescribe\TestHooks\AfterEach,
     PhpDescribe\TestHooks\BeforeAll,
     PhpDescribe\TestHooks\AfterAll,
@@ -105,15 +106,15 @@ class ExampleGroup extends AbstractExampleItem {
     /**
      * @return ResultGroup
      */
-    function run($parameters) {
+    function run($parameters, World $world) {
         $resultGroup = new \PhpDescribe\Result\ResultGroup($this->getName(),$this->getFile());
         $this->PhpDescribe->notify(PhpDescribe::EVENT_PRE_EXAMPLE_GROUP_RUN,$this,$resultGroup);
-        $ret = $this->_run($resultGroup,$parameters);
+        $ret = $this->_run($resultGroup,$parameters, $world);
         $this->PhpDescribe->notify(PhpDescribe::EVENT_POST_EXAMPLE_GROUP_RUN,$this,$resultGroup);
         return $ret;
     }
 
-    function _run($resultGroup,$parameters) {
+    function _run($resultGroup, $parameters, World $world) {
         foreach($this->examples as $example) {
             if($example instanceof  Example) {
                 if($this->beforeEach) {
@@ -123,7 +124,7 @@ class ExampleGroup extends AbstractExampleItem {
                     $example->setAfterEach($this->afterEach);
                 }
             }
-            $result = $example->run($parameters);
+            $result = $example->run($parameters, $world);
             $resultGroup->addResult($result);
         }
         return $resultGroup;

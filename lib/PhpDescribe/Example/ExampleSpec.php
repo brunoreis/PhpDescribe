@@ -1,8 +1,7 @@
 <?php
 namespace PhpDescribe\Example;
-
+use \PhpDescribe\World;
 class ExampleSpec extends ExampleGroup {
-   
 
     /**
      * @param string $name
@@ -17,8 +16,8 @@ class ExampleSpec extends ExampleGroup {
         $this->name = $name;
     }
 
-    function run($parameters) {
+    function run($parameters, World $world) {
         $resultGroup = new \PhpDescribe\Result\SpecResult($this->getName());
-        return $this->_run($resultGroup,$parameters);
+        return $this->_run($resultGroup,$parameters, $world);
     }
 }
