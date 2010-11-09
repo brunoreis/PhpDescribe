@@ -122,10 +122,11 @@ describe('PhpDescribe is a tool to describe the expected behaviour of a system i
             });
 
             it('if an error or exception occours in an example, it receivers the error status (ResultGroup::STATUS_ERROR)' , function() {
-                $spec2 = __DIR__.'/fixtureSpecs/specWithForcedNotWorkingExample.spec.php';
+                $spec2 = __DIR__.'/fixtureSpecs/specWithErrorAndExceptionExample.spec.php';
                 $results = \PhpDescribe\Runner::build()->setSpec($spec2)->run()->getResults();
-                expect($results[0]->calculateStatus())->should('be', ResultGroup::STATUS_NOT_WORKING);
-                showFileData('spec with not working example', $spec2);
+                expect($results[0]->getResult(0)->calculateStatus())->should('be', ResultGroup::STATUS_ERROR);
+                expect($results[0]->getResult(1)->calculateStatus())->should('be', ResultGroup::STATUS_ERROR);
+                showFileData('spec with error and exception example', $spec2);
             });
         });
 
@@ -259,7 +260,7 @@ describe('PhpDescribe is a tool to describe the expected behaviour of a system i
 //    });
 });
 
-function runRegisterToShowDataAndGetFirstExampleResults($specFile,$specDisplayName = 'spec') {
+function runAndAskToShowSpecDataAndGetFirstExampleResults($specFile,$specDisplayName = 'spec') {
     $results = \PhpDescribe\Runner::build()->setSpec($specFile)->run()->getResults();
     if( substr($specFile, -9) !== '.spec.php' ) {
         $specFile .= '.spec.php';

@@ -98,7 +98,7 @@ class Example extends AbstractExampleItem{
                 $arguments = $this->defineArguments($world);
                 $f($arguments);
                 if($this->expectedExceptionClass) {
-                    self::$openExampleResult->addResult(new \PhpDescribe\Result\ExpectationResult(
+                    PhpDescribe::getActual()->getOpenExampleResult()->addResult(new \PhpDescribe\Result\ExpectationResult(
                             false,
                             'Expected ' . $this->expectedExceptionClass . ' to be thrown'
                     ));
