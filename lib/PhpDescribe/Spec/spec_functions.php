@@ -79,7 +79,7 @@ function addSpec($filePath) {
         include($filePath);
     }
     else {
-        throw new Exception('Spec file not found:' . $filePath);
+        throw new Exception('Spec file not found:' . $filePath . ' atual path: ' . \realpath('.'));
     }
 }
 

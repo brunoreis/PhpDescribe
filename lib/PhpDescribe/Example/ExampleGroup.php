@@ -107,6 +107,9 @@ class ExampleGroup extends AbstractExampleItem {
      * @return ResultGroup
      */
     function run($parameters, World $world) {
+        $world = new World;
+        $variables = $this->extractVariables($this->getName());
+        $this->overrideVariables($variables);
         $resultGroup = new \PhpDescribe\Result\ResultGroup($this->getName(),$this->getFile());
         $this->PhpDescribe->notify(PhpDescribe::EVENT_PRE_EXAMPLE_GROUP_RUN,$this,$resultGroup);
         $ret = $this->_run($resultGroup,$parameters, $world);
@@ -116,6 +119,7 @@ class ExampleGroup extends AbstractExampleItem {
 
     function _run($resultGroup, $parameters, World $world) {
         foreach($this->examples as $example) {
+            $example->overrideVariables($this->getVariables());
             if($example instanceof  Example) {
                 if($this->beforeEach) {
                     $example->setBeforeEach($this->beforeEach);
@@ -128,5 +132,20 @@ class ExampleGroup extends AbstractExampleItem {
             $resultGroup->addResult($result);
         }
         return $resultGroup;
+    }
+
+    
+
+
+    private function extractVariables($name) {
+        preg_match_all('/\[([^:]*):([^:]*)\]/', $name, $matchesarray);
+        $numMatches = count($matchesarray[0]);
+        $variables = array();
+        if($numMatches) {
+            for($a = 0;$a < $numMatches; $a++) {
+                $variables[$matchesarray[1][$a]] = $matchesarray[2][$a];
+            }
+        }
+        return $variables;
     }
 }

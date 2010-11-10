@@ -8,8 +8,6 @@ use PhpDescribe\TestHooks\BeforeEach,
     \PhpDescribe\Result\ResultGroup;
 
 class Example extends AbstractExampleItem{
-
-    
     protected $expectedExceptionClass = null;
     protected static $openExampleResult;
     protected static $openExample;
@@ -148,6 +146,7 @@ class Example extends AbstractExampleItem{
             $args = $this->extractNameArguments($this->name);
         }
         $args['world'] = $world;
+        $args['variables'] = $this->variables;
         return $args;
     }
 

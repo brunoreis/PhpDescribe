@@ -11,12 +11,14 @@ abstract class AbstractExampleItem {
     protected $PhpDescribe;
     protected $parentExampleGroup;
     protected $args;
+    protected $variables = array();
     
 
     function __construct($name, Closure $function, $args = null) {
         $this->name = $name;
         $this->function = $function;
         $this->args = $args;
+        $this->variables = array();
     }
 
     function setParentExampleGroup($parent) {
@@ -35,5 +37,15 @@ abstract class AbstractExampleItem {
 
     function setPhpDescribe(PhpDescribe $PhpDescribe) {
         $this->PhpDescribe = $PhpDescribe;
+    }
+
+    function overrideVariables($variables) {
+        foreach($variables as $k=>$v) {
+            $this->variables[$k] = $v;
+        }
+    }
+
+    function getVariables() {
+        return $this->variables;
     }
 }

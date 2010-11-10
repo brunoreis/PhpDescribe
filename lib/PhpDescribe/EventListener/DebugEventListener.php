@@ -6,6 +6,7 @@ use PhpDescribe\Example\Example,
 class DebugEventListener extends EventListener {
     public function preExampleGroupRun(ExampleGroup $exampleGroup,ResultGroup $resultGroup){
         echo '[preExampleGroup.....]<b>' . $exampleGroup->getName() . '</b><br/>'."\n";
+        //x($exampleGroup->getVariables(),0,0);
         flush();
     }
     public function postExampleGroupRun(ExampleGroup $exampleGroup,ResultGroup $resultGroup){
@@ -14,6 +15,7 @@ class DebugEventListener extends EventListener {
     }
     public function preExampleRun(Example $example,ResultGroup $resultGroup){
         echo '[pre.....]' . $example->getName() . '<br/>'."\n";
+        //x($example->getVariables(),0,0);
         flush();
     }
     public function postExampleRun(Example $example,ResultGroup $resultGroup){
