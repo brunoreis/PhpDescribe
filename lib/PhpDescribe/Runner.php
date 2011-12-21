@@ -132,6 +132,14 @@ function toggleDescription(name) {
 
 
 <body>
+    <div id='legenda'>
+        <b>Legenda: </b>
+        <span class='WORKING'>.</span> Working
+        <span class='NOT_WORKING'>.</span> Not Working
+        <span class='INCOMPLETE'>.</span> Incomplete
+        <span class='ERROR'>.</span> Error
+    </div>
+
     $reportHtml
 </body>";
 //<a rel='license' href='http://creativecommons.org/licenses/by/3.0/br/'>

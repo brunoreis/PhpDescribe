@@ -84,7 +84,7 @@ class ResultReporter {
     private function reportResultGroup(\PhpDescribe\Result\ResultGroup $resultGroup) {
         $name = self::slugify($resultGroup->getExampleName()) . $this->resultNumber;
         $html =
-            "<div class='resultGroup'>" . $this->getStatusBox($resultGroup,'.')
+            "<div class='resultGroup status " . $this->calculateHtmlClass($resultGroup) . "'>"
             ."<span class='resultGroupTitle'><a href='javascript:;' onclick='toggleDescription(\"$name\")'>" . $resultGroup->getExampleName() . "</a></span>"
             ."<span class='resultGroupData'>"
             . $resultGroup->countExamples() 

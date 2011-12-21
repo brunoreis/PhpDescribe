@@ -2,7 +2,7 @@ body{
     font-family: arial,verdana, sans-serif;
     font-size: 1em;
     color: #000;
-    background-color: #343;
+    background-color: #ccc;
 }
 .allSpecs{
     background-color: #ccc;
@@ -33,20 +33,23 @@ body{
     font-size: 0.7em;
 }
 .failures{
-    background-color: #eee;
     margin: 10px;
     padding:3px;
-    color: #000;
+    background-color: #FFFBCC;
+    border: 1px solid #E6DB55;
+    color: #666452;
 }
-.errors{
-    color: #000;
+.errors {
+    background-color: #FFCECE;
+    border: 1px solid #DF8F8F;
+    color: #665252;
     background-color: #eee;
     margin: 10px;
     padding:3px;
 }
 .innerResults{
     margin-top: 5px;
-    border-left: dotted 2px #999;
+/*    border-left: dotted 2px #999;*/
 }
 .resultGroupTitle{
     /*font-size: 1.1em;*/
@@ -90,19 +93,19 @@ body{
     background-color: #ccc;
 }
 .NOT_WORKING{
-    background-color: #ee3;
+    background-color: #E6DB55;
     color: #ee3;
 }
 .INCOMPLETE{
-    background-color: #4c7;
+    background-color: #A2B4EE;
     color: #4c7;
 }
 .WORKING{
-    background-color: #fff;
+    background-color: #9ADF8F;
     color: #fff;
 }
 .ERROR{
-    background-color: #922;
+    background-color: #DF8F8F;
     color: #922;
 }
 .code {
@@ -119,4 +122,38 @@ body{
     background-color: #ddd;
     margin: 10px;
     padding: 10px 20px 10px 20px;
+}
+
+.status{
+    border-style: solid dashed dashed dashed;
+    border-width: 2px 1px 1px 1px;
+    margin: 0 0 15px;
+    padding: 0 15px 0 15px;
+    position: relative;
+
+}
+.status.NOT_WORKING{
+    background-color: #FFFBCC;
+    border-color: #E6DB55;
+    color: #666452;
+}
+.status.INCOMPLETE{
+    background-color: #DBE3FF;
+    border-color: #A2B4EE;
+    color: #585B66
+}
+
+.status.WORKING{
+    background-color: #D5FFCE;
+    border-color: #9ADF8F;
+    color: #556652;;
+}
+
+.status.ERROR{
+    background-color: #FFCECE;
+    border-color: #DF8F8F;
+    color: #665252;
+}
+#legenda {
+    text-align: right;
 }
